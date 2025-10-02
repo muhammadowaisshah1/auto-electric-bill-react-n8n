@@ -6,14 +6,14 @@ import { useToast } from "@/hooks/use-toast";
 import heroBg from "@/assets/hero-bg.jpg";
 
 interface BillData {
-  customerName: string;
-  address: string;
-  previousReading: string;
-  presentReading: string;
-  units: string;
-  currentBill: string;
-  payableWithinDueDate: string;
-  BillMonth: string;
+  "Customer Name": string;
+  "Address": string;
+  "Previous Reading": number;
+  "Present Reading": number;
+  "Units": number;
+  "Current Bill": number;
+  "Payable Within Due Date": string;
+  "Bill Month": string;
 }
 
 const Index = () => {
@@ -226,7 +226,7 @@ const Index = () => {
                       <User className="w-4 h-4" />
                       <span className="text-sm font-medium">Customer Name</span>
                     </div>
-                    <p className="text-lg font-semibold text-foreground">{billData.customerName}</p>
+                    <p className="text-lg font-semibold text-foreground">{billData["Customer Name"]}</p>
                   </div>
 
                   <div className="space-y-2 p-4 rounded-xl bg-muted/30 border border-border/50">
@@ -234,7 +234,7 @@ const Index = () => {
                       <Calendar className="w-4 h-4" />
                       <span className="text-sm font-medium">Bill Month</span>
                     </div>
-                    <p className="text-lg font-semibold text-foreground">{billData.BillMonth}</p>
+                    <p className="text-lg font-semibold text-foreground">{billData["Bill Month"]}</p>
                   </div>
 
                   <div className="space-y-2 p-4 rounded-xl bg-muted/30 border border-border/50 md:col-span-2">
@@ -242,7 +242,7 @@ const Index = () => {
                       <Home className="w-4 h-4" />
                       <span className="text-sm font-medium">Address</span>
                     </div>
-                    <p className="text-lg font-semibold text-foreground">{billData.address}</p>
+                    <p className="text-lg font-semibold text-foreground">{billData["Address"]}</p>
                   </div>
 
                   <div className="space-y-2 p-4 rounded-xl bg-accent/10 border border-accent/30">
@@ -250,7 +250,7 @@ const Index = () => {
                       <TrendingUp className="w-4 h-4" />
                       <span className="text-sm font-medium">Previous Reading</span>
                     </div>
-                    <p className="text-2xl font-bold text-foreground">{billData.previousReading}</p>
+                    <p className="text-2xl font-bold text-foreground">{billData["Previous Reading"]}</p>
                   </div>
 
                   <div className="space-y-2 p-4 rounded-xl bg-accent/10 border border-accent/30">
@@ -258,7 +258,7 @@ const Index = () => {
                       <TrendingUp className="w-4 h-4" />
                       <span className="text-sm font-medium">Present Reading</span>
                     </div>
-                    <p className="text-2xl font-bold text-foreground">{billData.presentReading}</p>
+                    <p className="text-2xl font-bold text-foreground">{billData["Present Reading"]}</p>
                   </div>
 
                   <div className="space-y-2 p-4 rounded-xl bg-primary/10 border border-primary/30">
@@ -266,7 +266,7 @@ const Index = () => {
                       <Zap className="w-4 h-4" />
                       <span className="text-sm font-medium">Units Consumed</span>
                     </div>
-                    <p className="text-2xl font-bold text-foreground">{billData.units}</p>
+                    <p className="text-2xl font-bold text-foreground">{billData["Units"]}</p>
                   </div>
 
                   <div className="space-y-2 p-4 rounded-xl bg-secondary/10 border border-secondary/30">
@@ -274,7 +274,7 @@ const Index = () => {
                       <DollarSign className="w-4 h-4" />
                       <span className="text-sm font-medium">Current Bill</span>
                     </div>
-                    <p className="text-2xl font-bold text-foreground">{billData.currentBill}</p>
+                    <p className="text-2xl font-bold text-foreground">{billData["Current Bill"]}</p>
                   </div>
 
                   <div className="md:col-span-2 p-6 rounded-xl bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/30">
@@ -283,7 +283,7 @@ const Index = () => {
                       <span className="text-sm font-medium">Payable Within Due Date</span>
                     </div>
                     <p className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                      {billData.payableWithinDueDate}
+                      {billData["Payable Within Due Date"]}
                     </p>
                   </div>
                 </div>
