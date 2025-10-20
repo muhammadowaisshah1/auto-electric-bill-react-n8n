@@ -82,7 +82,7 @@ const Index = () => {
       const formData = new FormData();
       formData.append("billFile", file);
 
-      const response = await fetch("https://muhammadowais12.app.n8n.cloud/webhook-test/bill", {
+      const response = await fetch("https://muhammadowais3.app.n8n.cloud/webhook-test/bill", {
         method: "POST",
         body: formData,
       });
@@ -271,19 +271,19 @@ const Index = () => {
 
                   <div className="space-y-2 p-4 rounded-xl bg-secondary/10 border border-secondary/30">
                     <div className="flex items-center space-x-2 text-secondary">
-                      <DollarSign className="w-4 h-4" />
+                      {/* <DollarSign className="w-4 h-4" /> */}
                       <span className="text-sm font-medium">Current Bill</span>
                     </div>
-                    <p className="text-2xl font-bold text-foreground">{billData["Current Bill"]}</p>
+                    <p className="text-2xl font-bold text-foreground">Rs. {billData["Current Bill"]}</p>
                   </div>
 
                   <div className="md:col-span-2 p-6 rounded-xl bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/30">
                     <div className="flex items-center space-x-2 text-primary mb-2">
-                      <DollarSign className="w-5 h-5" />
+                      {/* <DollarSign className="w-5 h-5" /> */}
                       <span className="text-sm font-medium">Payable Within Due Date</span>
                     </div>
-                    <p className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                      {billData["Payable Within Due Date"]}
+                    <p className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"> 
+                       Rs. {billData["Payable Within Due Date"]}
                     </p>
                   </div>
                 </div>
