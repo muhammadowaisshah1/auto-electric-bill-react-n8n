@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Upload, Loader2, Zap, User, Home, Calendar, TrendingUp, DollarSign } from "lucide-react";
+import { Upload, Loader2, Zap, User, Home, Calendar, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
@@ -82,7 +82,8 @@ const Index = () => {
       const formData = new FormData();
       formData.append("billFile", file);
 
-      const response = await fetch("https://muhammadowais3.app.n8n.cloud/webhook-test/bill", {
+      // ✅ Production Webhook URL
+      const response = await fetch("https://muhammadowais3.app.n8n.cloud/webhook/bill", {
         method: "POST",
         body: formData,
       });
@@ -93,7 +94,7 @@ const Index = () => {
 
       const data = await response.json();
       setBillData(data);
-      
+
       toast({
         title: "Success! ✨",
         description: "Your bill has been analyzed successfully.",
@@ -113,12 +114,12 @@ const Index = () => {
     <div className="min-h-screen" style={{ background: "var(--gradient-soft)" }}>
       {/* Hero Section */}
       <div className="relative overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 opacity-20"
-          style={{ 
+          style={{
             backgroundImage: `url(${heroBg})`,
             backgroundSize: "cover",
-            backgroundPosition: "center"
+            backgroundPosition: "center",
           }}
         />
         <div className="container mx-auto px-4 py-16 relative z-10">
@@ -270,20 +271,16 @@ const Index = () => {
                   </div>
 
                   <div className="space-y-2 p-4 rounded-xl bg-secondary/10 border border-secondary/30">
-                    <div className="flex items-center space-x-2 text-secondary">
-                      {/* <DollarSign className="w-4 h-4" /> */}
-                      <span className="text-sm font-medium">Current Bill</span>
-                    </div>
+                    <span className="text-sm font-medium">Current Bill</span>
                     <p className="text-2xl font-bold text-foreground">Rs. {billData["Current Bill"]}</p>
                   </div>
 
                   <div className="md:col-span-2 p-6 rounded-xl bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/30">
                     <div className="flex items-center space-x-2 text-primary mb-2">
-                      {/* <DollarSign className="w-5 h-5" /> */}
                       <span className="text-sm font-medium">Payable Within Due Date</span>
                     </div>
-                    <p className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"> 
-                       Rs. {billData["Payable Within Due Date"]}
+                    <p className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                      Rs. {billData["Payable Within Due Date"]}
                     </p>
                   </div>
                 </div>
